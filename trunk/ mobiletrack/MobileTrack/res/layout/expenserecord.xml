@@ -1,0 +1,56 @@
+<!-- ScrollView 
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:fillViewport="true" android:id="@+id/scrollView1"!-->
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_gravity="center|center_horizontal"
+		android:gravity="center_horizontal"
+		android:background="@drawable/actionbar_compat_background">
+		<TextView android:id="@+id/textView1" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="Expense Amount:"
+			android:textSize="20sp"
+			style = "@style/DashboardButton"></TextView>
+		<EditText android:text="0.00" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/cost"
+			android:inputType="numberDecimal" android:selectAllOnFocus="true"></EditText>
+		<LinearLayout android:id="@+id/linearLayout3"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:layout_width="fill_parent">
+			<TextView android:id="@+id/textView2" android:text="@string/client_string"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				style = "@style/DashboardButton"></TextView>
+			<Spinner android:layout_height="wrap_content" android:id="@+id/account_spinner"
+				android:layout_width="fill_parent" android:prompt="@string/account_prompt"></Spinner>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout2"
+			android:orientation="vertical" android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<TextView android:id="@+id/TextView01" android:text="@string/matter_string"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				style = "@style/DashboardButton"></TextView>
+			<Spinner android:layout_height="wrap_content" android:id="@+id/matter_spinner"
+				android:layout_width="fill_parent" android:prompt="@string/matter_prompt"></Spinner>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout02"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:layout_width="fill_parent">
+			<TextView android:id="@+id/TextView02" android:text="@string/record_category"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				style = "@style/DashboardButton"></TextView>
+			<Spinner android:layout_height="wrap_content" android:id="@+id/event_spinner"
+				android:layout_width="fill_parent" android:prompt="@string/category_prompt"></Spinner>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout1"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:layout_width="fill_parent">
+			<TextView android:id="@+id/textView4" android:text="@string/record_comment"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				style = "@style/DashboardButton"></TextView>
+			<EditText android:text="" android:id="@+id/comment"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:selectAllOnFocus="true"></EditText>
+		</LinearLayout>
+		<Button android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/savebutton"
+			android:text="Save Record" android:width="100sp"></Button>
+
+	</LinearLayout>

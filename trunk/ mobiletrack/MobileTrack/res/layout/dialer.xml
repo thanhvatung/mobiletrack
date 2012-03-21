@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_height="wrap_content"
+      android:layout_width="fill_parent"
+      android:layout_gravity="center"
+      android:paddingLeft="20dip"
+      android:paddingRight="20dip">
+     <TextView
+        android:id="@+id/phone_number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:textSize="24.5sp"
+        android:background="@android:drawable/editbox_background"/>
+ 
+       <!-- TextView
+         android:text="@string/in_test"
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginBottom="20dip"
+         android:textSize="24.5sp" /-->
+ 
+        <TableLayout
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:layout_gravity="center"
+         android:stretchColumns="*">
+       <!-- View
+        android:layout_height="6dip"
+        android:background="#FF909090" /-->
+         <TableRow>
+            <Button
+               android:id="@+id/num1_button"
+               android:text="@string/num1_label" />
+            <Button
+               android:id="@+id/num2_button"
+               android:text="@string/num2_label" />
+            <Button
+               android:id="@+id/num3_button"
+               android:text="@string/num3_label" />
+         </TableRow>
+
+         
+         <TableRow>
+            <Button
+               android:id="@+id/num4_button"
+               android:text="@string/num4_label" />
+            <Button
+               android:id="@+id/num5_button"
+               android:text="@string/num5_label" />
+            <Button
+               android:id="@+id/num6_button"
+               android:text="@string/num6_label" />
+         </TableRow>
+
+         <TableRow>
+            <Button
+               android:id="@+id/num7_button"
+               android:text="@string/num7_label" />
+            <Button
+               android:id="@+id/num8_button"
+               android:text="@string/num8_label" />
+            <Button
+               android:id="@+id/num9_button"
+               android:text="@string/num9_label" />
+         </TableRow>
+
+         <TableRow>
+            <Button
+               android:id="@+id/star_button"
+               android:text="@string/star_label" />
+            <Button
+               android:id="@+id/num0_button"
+               android:text="@string/num0_label" />
+            <Button
+               android:id="@+id/pound_button"
+               android:text="@string/pound_label" />
+         </TableRow>
+
+         <TableRow>
+            <Button
+               android:id="@+id/send_button"
+               android:text="@string/send_label" />
+            <Button
+               android:id="@+id/contacts_button"
+               android:text="@string/contacts_label" />
+            <Button
+               android:id="@+id/delete_button"
+               android:text="@string/delete_label" />
+         </TableRow>
+      </TableLayout>
+  </LinearLayout>
+</LinearLayout>

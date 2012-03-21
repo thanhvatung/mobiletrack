@@ -1,0 +1,22 @@
+<com.mobiletrack.ui.widget.DashboardLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/actionbar_compat_background">
+    <Button android:id="@+id/home_btn_configuratin"
+        style="@style/DashboardButton"
+        android:text="@string/btn_configuration"
+        android:drawableTop="@drawable/home_btn_configuration" />
+    <Button android:id="@+id/home_btn_map"
+        style="@style/DashboardButton"
+        android:text="@string/btn_map"
+        android:drawableTop="@drawable/home_btn_map" />
+    <Button android:id="@+id/home_btn_uti"
+        style="@style/DashboardButton"
+        android:text="@string/btn_uti"
+        android:drawableTop="@drawable/home_btn_uti" />
+    <Button android:id="@+id/home_btn_description"
+        style="@style/DashboardButton"
+        android:text="@string/btn_description"
+        android:drawableTop="@drawable/home_btn_description" />
+</com.mobiletrack.ui.widget.DashboardLayout>

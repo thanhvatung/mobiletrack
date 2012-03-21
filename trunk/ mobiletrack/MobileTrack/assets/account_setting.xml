@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AccountCodeSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Ignore>
+	<string>4197028</string>
+	<string>4197040</string>
+	<string>4197041</string>
+    </Ignore>
+    <AccountCodes>
+	<AccountCodeItem Name="Albert Montevecchio" Code="456789123">
+	    <Numbers>
+		<string>5853171111</string>
+	    </Numbers>
+	    <MatterCodes>
+		<MatterCodeItem Code="123456" Name="Incorporation"/>
+	    </MatterCodes>
+	</AccountCodeItem>
+	<AccountCodeItem Name="Anna Zhelezynak" Code="1234554545">
+	    <Numbers/>
+	    <MatterCodes/>
+	</AccountCodeItem>
+	<AccountCodeItem Name="Douglas Montevecchio" Code="987654321">
+	    <Numbers>
+		<string>5853171111</string>
+		<string>5854197040</string>
+	    </Numbers>
+	    <MatterCodes/>
+	</AccountCodeItem>
+	<AccountCodeItem Name="Timothy Montevecchio" Code="123456789">
+	    <Numbers>
+		<string>5854197040</string>
+		<string>5857341111</string>
+	    </Numbers>
+	    <MatterCodes>
+		<MatterCodeItem Code="123456" Name="Home Purchase"/>
+		<MatterCodeItem Code="77777" Name="Traffic Violation"/>
+		<MatterCodeItem Code="88888" Name="Patent"/>
+	    </MatterCodes>
+	</AccountCodeItem>
+    </AccountCodes>
+</AccountCodeSettings>

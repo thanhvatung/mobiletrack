@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:background="@drawable/actionbar_compat_background">
+      <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center" >
+        <TextView
+            android:text="@string/locationTitle"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dip"
+            android:textSize="24.5sp" />
+        <TableLayout
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:layout_gravity="right"
+         android:stretchColumns="*">
+       <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+          <TableRow>
+          <TextView
+            android:id="@+id/locationText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/hello" />
+        </TableRow>
+       <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+        </TableLayout>
+        </LinearLayout>
+</LinearLayout>

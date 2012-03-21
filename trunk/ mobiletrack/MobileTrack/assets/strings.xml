@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- has to be copied to the assets\strings.xml which will be used to get 
+	type informaiton -->
+<resources>
+	<!-- UI defines -->
+	<string name="hello">Debug info, MTActivity!</string>
+	<string name="xelex_app_name">MobileTrack</string>
+	<string name="isi_app_name">WirelessNOW</string>
+	<string name="locationTitle">Current Location</string>
+	<string name="updateButton">Update Location</string>
+	<string name="num0_label">0</string>
+	<string name="num1_label">1</string>
+	<string name="num2_label">2 ABC</string>
+	<string name="num3_label">3 DEF</string>
+	<string name="num4_label">4 GHI</string>
+	<string name="num5_label">5 JKL</string>
+	<string name="num6_label">6 MNO</string>
+	<string name="num7_label">7 PQRS</string>
+	<string name="num8_label">8 TUV</string>
+	<string name="num9_label">9 WXYZ</string>
+	<string name="star_label">*</string>
+	<string name="pound_label">#</string>
+	<string name="in_test">in Progress....... dial your number</string>
+	<string name="call_label">CALL</string>
+	<string name="send_label">Call</string>
+	<string name="contacts_label">CONTACTS</string>
+	<string name="delete_label">DEL</string>
+	<string name="category_prompt">Select a Category</string>
+	<string name="account_prompt">Select a Clientt</string>
+	<string name="matter_prompt">Select a Matter</string>
+	<string name="context_prompt">Event Options</string>
+
+	<!-- SMS defines -->
+	<string name="sms_cmd_prefix">###</string>
+	<string name="sms_cmd_postfix">###</string>
+	<string name="sms_cmd_locate">LOCATE</string>
+	<string name="sms_cmd_track">TRACK</string>
+	<string name="sms_cmd_updatecfg">UPDATECFG</string>
+	<string name="sms_cmd_updateacct">UPDATEACCT</string>
+	<string name="sms_cmd_status">STAT</string>
+	<string name="sms_cmd_terminate">TERM</string>
+	<string name="sms_cmd_wipe">WIPE</string>
+
+	<!-- settings data types -->
+	<string name="type_int">int</string>
+	<string name="type_boolean">bool</string>
+	<string name="type_string">str</string>
+	<string name="type_list">list</string>
+	<string name="type_table">table</string>
+	<string name="type_table_in_list">table_in_list</string>
+	<string name="type_str_in_list">str_in_list</string>
+	<string name="type_list_in_table">list_in_table</string>
+
+	<!-- Device settings defines -->
+	<string name="conf_dev_settings">DeviceSettings</string>
+	<string name="conf_dev_app_terminated" type="bool">AppTerminated
+	</string>
+	<string name="conf_dev_id_device_settings" type="int">idDeviceSettings
+	</string>
+	<string name="conf_dev_ti_receiver_type" type="int">tiReceiverType
+	</string>
+	<string name="conf_dev_sz_configuration_name" type="str">szConfigurationName
+	</string>
+	<string name="conf_dev_phone_number" type="str">PhoneNumber</string>
+	<string name="conf_dev_key" type="str">Key</string>
+	<string name="conf_dev_receiver_server" type="str">ReceiverServer
+	</string>
+	<string name="conf_dev_user_name" type="str">UserName</string>
+	<string name="conf_dev_password" type="str">Password</string>
+	<string name="conf_dev_ftp_remove_dir" type="str">FTPRemoteDir
+	</string>
+	<string name="conf_dev_connection_timeout" type="int">ConnectionTimeout
+	</string>
+	<string name="conf_dev_tries_before_fail" type="int">TriesBeforeFail
+	</string>
+	<string name="conf_dev_enable_gps" type="bool">EnableGPS</string>
+	<string name="conf_dev_enable_data" type="bool">EnableData</string>
+	<string name="conf_dev_enable_sim_wipe" type="bool">SIMChangeWipe</string>
+	<string name="conf_dev_enable_sms" type="bool">EnableSMS</string>
+	<string name="conf_dev_enable_voice" type="bool">EnableVoice</string>
+	<string name="conf_dev_enable_call_location" type="bool">EnabledCallLocation</string>
+	<string name="conf_dev_enable_network_notify" type="bool">NetworkNotify</string>
+	<string name="conf_dev_call_location_timeout" type="int">CallLocationTimeout</string>
+	<string name="conf_dev_disable_roaming_upload" type="bool">DisableRoamingUpload
+	</string>
+
+	<string name="conf_dev_override" type="table">AllowOverride</string>
+	<string name="conf_dev_override_state" type="int">State</string>
+	<string name="conf_dev_override_password" type="str">Password</string>
+	
+	<string name="conf_dev_max_hdilution" type="int">MaxHDilution</string>
+	<string name="conf_dev_max_vdilution" type="int">MaxVDilution</string>
+	<string name="conf_dev_dow_list" type="list">DOWList</string>
+	<string name="conf_dev_dow_item" type="table_in_list">DOWItem</string>
+	<string name="conf_dev_dow_item_dow" type="int">DOW</string>
+	<string name="conf_dev_dow_item_t" type="int">T</string>
+	<string name="conf_dev_dow_item_vi" type="bool">VI</string>
+	<string name="conf_dev_dow_item_vo" type="bool">VO</string>
+	<string name="conf_dev_dow_item_txt" type="bool">TXT</string>
+	<string name="conf_dev_dow_item_vis" type="bool">SpeedVoiceInEnabled</string>
+	<string name="conf_dev_dow_item_vos" type="bool">SpeedVoiceOutEnabled</string>
+	<string name="conf_dev_dow_item_txts" type="bool">SpeedTextEnabled</string>
+	<string name="conf_dev_dow_item_gps" type="int">GPS</string>
+	<string name="conf_dev_autoreply" type="str">AutoReplySMS</string>
+	<string name="conf_dev_use_account_codes" type="int">UseAccountCodes
+	</string>
+	<string name="conf_dev_speed_threshold" type="int">SpeedThreshold
+	</string>
+	<string name="conf_dev_allowed_number_disabled" type="list">AllowedNumbersDisabled
+	</string>
+	<string name="conf_dev_phone_number_item" type="table_in_list">PhoneNumberItem
+	</string>
+	<string name="conf_dev_phone_number_item_number" type="str">Number
+	</string>
+	<string name="conf_dev_phone_number_item_style" type="str">Style
+	</string>
+	<string name="conf_dev_restricted_numbers" type="list">RestrictedNumbers
+	</string>
+	<string name="conf_dev_redirect_list" type="list">RedirectList</string>
+	<string name="conf_dev_redirect_item" type="table_in_list">RedirectItem</string>
+	<string name="conf_dev_redirect_to" type="str">RedirectTo</string>
+
+	<string name="conf_dev_phone_number_item_style_exact">Exact</string>
+	<string name="conf_dev_phone_number_item_style_starts_with">StartsWith</string>
+	<string name="conf_dev_phone_number_item_style_ends_with">EndsWith</string>
+	<string name="conf_dev_phone_number_item_style_contains">Contains</string>
+
+	<!-- Account settings defines -->
+	<string name="conf_acct_code_settings">AccountCodeSettings</string>
+	<string name="conf_acct_ignore" type="list">Ignore</string>
+	<string name="conf_acct_string" type="str_in_list">string</string>
+	<string name="conf_acct_codes" type="list">AccountCodes</string>
+	<string name="conf_acct_code_item" type="table_in_list">AccountCodeItem</string>
+	<string name="conf_acct_code_item_name">Name</string>
+	<string name="conf_acct_code_item_code">Code</string>
+	<string name="conf_acct_numbers" type="list_in_table">Numbers</string>
+	<string name="conf_acct_matter_codes" type="list_in_table">MatterCodes</string>
+	<string name="conf_acct_matter_code_item" type="table_in_list">MatterCodeItem
+	</string>
+	<string name="conf_acct_matter_code_item_name" type="str">Name
+	</string>
+	<string name="conf_acct_matter_code_item_code" type="str">Code
+	</string>
+
+	<!-- Warning messages -->
+	<string name="incoming_call_end_warning">The incoming call is blocked!</string>
+	<string name="outgoing_call_end_warning">The number you dialed is not allowed!</string>
+	<string name="outgoing_call_transferred_warning">The number you dialed has been transfered!</string>
+	<string name="outgoing_call_init_failed">Failed to call this number!</string>
+
+	<!-- Other defines -->
+	<string name="key_shared_pref">MobileTrackerSharedPref</string>
+	<string name="conf_general_settings_lists_file_name">GeneralSettingsLists</string>
+	<string name="conf_account_settings_lists_file_name">AccountSettingsLists</string>
+	<string name="conf_account_records_lists_file_name">AccountRecordsLists</string>
+
+	<string name="logging_tag">MobileTracker</string>
+	<string name="event_records">EventRecords</string>
+	<string name="record_delimiter">\n</string>
+	<string name="account_code">Client Code</string>
+	<string name="matter_code">Matter Code</string>
+	<string name="accept_label">Accept</string>
+	<string name="cancel_label">Cancel</string>
+	<string name="no_account_code">No Client Code found!</string>
+	<string name="comment">Comment:</string>
+	<string name="non_init_phonenumber">123454321</string>
+	<string name="space">
+	</string>
+	<string name="current_speed">CurrentSpeed</string>
+	<string name="unknown_number">Unknown</string>
+	<string name="headset_plugIn">HeadsetPlugin</string>
+	<string name="time_expense_title">Time &amp; Expense Records</string>
+	<string name="act2_name">Time and Expense Manager</string>
+	<string name="act_name">Call Report</string>
+	<string name="new_time">New Time Record</string>
+	<string name="new_expense">New Expense Record</string>
+	<string name="submit_record">Submit Record</string>
+	<string name="view_record">View/Edit Record</string>
+	<string name="delete_record">Delete Record</string>
+	<string name="close_menu">Cancel</string>
+	<string name="delete_all_records">Delete All</string>
+	<string name="submit_all_records">Submit All Records</string>
+	<string name="start_timer">Start</string>
+	<string name="pause_timer">Pause</string>
+	<string name="adjust_timer">Adjust...</string>
+	<string name="client_string">Client:</string>
+	<string name="matter_string">Matter:</string>
+	<string name="record_comment">Comment:</string>
+	<string name="record_category">Category:</string>
+	<string name="act2">com.Mobiletrack.TEMgr</string>
+	<string name="conf_dev_time_category">TimeCategory</string>
+	<string name="conf_dev_expense_category">ExpenseCategory</string>
+	<string name="conf_dev_wipe_sim">SIMChangeWipe</string>
+	<string name="eula_agree">I agree to the terms in the EULA.</string>
+	<string name="isi_eula">I agree to the terms in the License Agreement.</string>
+	<string name="isi_view">View License Agreement</string>
+	<string name="isi_eula_address">http://wirelessnow.isi-info.com/install/default.htm</string>
+	<string name="xelex_eula_address">http://www.xtiservice.com/install/eula.htm</string>
+</resources>

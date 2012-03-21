@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.mobiletrack" android:versionCode="249" android:versionName="2.3.5">
+	<!-- used to communicate with server: FTP transfer -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application 
+	    android:icon="@drawable/ic_xelex_main"			
+        android:label="@string/xelex_app_name" android:debuggable="true" >
+        
+        <activity
+            android:label="@string/xelex_app_name"
+            android:name=".ui.widget.HomeActivity"
+            android:theme="@style/Theme.mobiletrack">
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+	    
+		<activity android:name=".ui.MTActivity" android:label="@string/act_name"
+			android:screenOrientation="portrait">
+			<!--intent-filter> <action android:name="android.intent.action.MAIN" /> 
+				<category android:name="android.intent.category.LAUNCHER" /> </intent-filter! -->
+		</activity>
+		<activity android:name=".ui.TimeExpenseActivity"
+			android:label="@string/act2_name" android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar" android:taskAffinity="@string/act2">
+		</activity>
+				    
+		<activity android:name=".ui.TimeRecordActivity"
+			android:label="Time Record" android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar">
+		</activity>
+		<activity android:name=".ui.FamilyMapActivity"
+			android:label="Family Map" android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar">
+		</activity>
+		<activity android:name=".ui.CustomerCodeActivity"
+			android:label="Configuration" android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar">
+		</activity>
+		<activity android:name=".ui.ExpenseRecordActivity"
+			android:label="Expense Record" android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar">
+		</activity>
+		<activity android:name=".ui.AdjustTimeActivity"
+			android:label="Adjust Time" android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar">
+		</activity>
+		<activity android:name=".ui.SettingsActivity" android:label="Settings Activity">
+		</activity>
+		<activity android:name=".ui.LocationActivity" android:label="Location Activity">
+		</activity>
+		<activity android:name=".ui.AccountCodeActivity"
+			android:screenOrientation="portrait">
+		</activity>
+		<activity android:name=".ui.OverrideActivity" android:label="Override Activity" android:screenOrientation="portrait">
+		</activity>
+		
+		<service android:enabled="true" android:name=".service.WipeService" />
+		<service android:enabled="true" android:name=".service.LocationUploadService" />
+		<service android:enabled="true" android:name=".service.LocationTrackService" />
+		<service android:enabled="true" android:name=".service.SpeedDetectionService" />
+		<service android:enabled="true" android:name=".service.BlockIncomingCallService" />
+		<receiver android:name=".service.MobileTrackAlarmReceiver">
+			<intent-filter>
+				<action android:name="com.mobiletrack.ACTION_REFRESH_MOBILETRACK_ALARM" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".service.LocationUploadService">
+			<intent-filter>
+				<action android:name="com.mobiletrack.ACTION_REFRESH_MOBILETRACK_ALARM" />
+			</intent-filter>
+		</receiver>
+
+		<receiver android:name=".handler.CallHandler"
+			android:enabled="true">
+			<intent-filter android:priority="0">
+				<action android:name="android.intent.action.PHONE_STATE" />
+				<action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".handler.SmsHandler">
+			<intent-filter>
+				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".handler.OnBootReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".handler.GPSAlarmReceiver">
+			<intent-filter>
+				<action android:name=".handler.ACTION_MOBILETRACK_GPS_ALARM" />
+			</intent-filter>
+		</receiver>
+		
+		<receiver android:name=".handler.TimeScheduleAlarmReceiver">
+			<intent-filter>
+				<action android:name=".handler.Time_Schedule_ALARM" />
+			</intent-filter>
+		</receiver>    
+		    
+		<receiver android:name=".record.DeviceStatusRecord">
+			<intent-filter>
+				<action android:name="android.intent.action.BATTERY_CHANGED" />
+				<action android:name="android.provider.Telephony.SIGNAL_STRENGTHS_CHANGED" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".handler.DeviceRegAlarmReceiver">
+			<intent-filter>
+				<action
+					android:name="com.mobiletrack.handler.ACTION_MOBILETRACK_DEVICE_REG_ALARM" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".handler.HeadsetPlugReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.HEADSET_PLUG" />
+			</intent-filter>
+		</receiver>
+		  <!-- Map -->
+    	<uses-library android:required="true" android:name="com.google.android.maps"></uses-library>
+	</application>
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	<uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />  
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> 
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+	<uses-permission android:name="android.permission.RECEIVE_SMS" />
+	<uses-permission android:name="android.permission.READ_SMS" />
+	<uses-permission android:name="android.permission.SEND_SMS" />
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<uses-permission android:name="android.permission.WRITE_CONTACTS" />
+	<uses-permission android:name="android.permission.WRITE_SMS" />
+	<!-- used to block incoming call -->
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<!-- used to write log to sd card -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!-- used to access GPS location, for XPS functionality -->
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<!-- use to obtain the cell tower ID -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+	<!-- use to launch a new phone call from the code -->
+	<uses-permission android:name="android.permission.CALL_PHONE" />
+	<!-- uses-permission android:name="android.permission.CALL_PRIVILEGED" / -->
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+	<uses-sdk android:minSdkVersion="7" />
+</manifest>

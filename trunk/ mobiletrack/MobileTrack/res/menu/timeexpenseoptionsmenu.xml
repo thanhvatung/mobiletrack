@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item	android:id="@+id/new_time"
+			android:title="@string/new_time" android:icon="@drawable/ic_menu_clock"></item>
+	<item	android:id="@+id/new_expense"
+			android:title="@string/new_expense" android:icon="@drawable/ic_menu_expense"></item>
+	<item	android:id="@+id/delete_all_records"
+			android:title="@string/delete_all_records" android:icon="@android:drawable/ic_menu_delete"></item>
+	<item	android:id="@+id/submit_all_records" android:title="@string/submit_all_records" android:icon="@drawable/ic_menu_tick"></item>
+</menu>

@@ -1,0 +1,111 @@
+========================================[BugList]========================================
+--> Bug ID: 19
+(Short desc): Text Blocking WNF: comment:
+
+========================================[BugList: can not reproduce]========================================
+--> Bug ID: 20
+(Short desc): Redirect Numbers
+(notes): Cannot reproduce. Please note: phone number will be redirected only if outgoing call is blocked. (Specs Page No. 11)
+
+--> Bug ID: 18
+(Short desc): Location Dilution Cannot reproduce. Please provide more information. 
+
+========================================[BugList: Fixed - ready to test]========================================
+--> Bug ID: 24
+(Short desc): Speed and location - not working correctly
+Speed block is turned off for current build. Will be on for next release. However, to enable speed block we need to constantly run GPS, which will drain the device battery.
+(notes): An extra location service gets involved with internal set to 2 minutes. This may have huge impact to the battery life. 
+
+**> The LocationUploadService is a bit messy, everytime we should create new location listener and nmea listener
+    We should not use local variables: _locListener and _nmeaListener
+    (notes): fixed and now all the variables are grouped by the startId
+========================================[BugList: Fixed and Tested]========================================
+--> Bug ID: 17
+(Short desc): Default Account code selection ok to fix.
+(notes): need to adjust the matter code as well.
+
+--> Bug ID: 23
+(Short desc): Account Code Ignore Numbers don't work will check and fix
+
+--> Bug ID: 16
+(Short desc): Account Code - On Match Only ok to fix. (number without area code should be matched)
+
+--> Bug ID: 22
+(Short desc): Account Code Screen - Comment field too small
+
+--> Bug ID: 21
+(Short desc): Account code should say Client Code
+
+--> BUG: addition:
+(Short desc): When a new configuration is sent to the phone - The tracking interval does not go into effect. I had the interval set to 1 minute, and changed it to 15 minutes but continued to get records every minute. Rebooted the phone and the interval seemed to work correctly. This still looks like the config loader 
+(notes): It is not configuration bug. For current build, tracking command will be let go till the end if it is already started.  We can stop it for next release. Simply stop the service does not fix this bug. We should unregister the location listener and stop the service properly.
+
+============================================================================================================================================================
+TODOs:
+[major feature missing]
+    . P12, device registration feature
+    . P14, device status upload feature
+    . P17, network notification upload feature
+    . P20, implement new commands: STAT, WIPE (TERM done)
+    . review and apply the settings in the device config xml file in the code
+[normal]
+    . auto run when phone turns on after rebooting (P 5)
+    . auto launch after installation (P 5)
+    . restart after crashing or unexpected quit (P 5)
+    . enable incoming and outgoing calls when an emergency call has been made (P 8)
+    . the location provider will be still running even if the service has been stopped??
+[minor]
+    . should we use thread or LocationListener to track, it seems LocationListener is hard to control ...
+    . FTP timeout to use
+
+Questions
+. in Page 8, we need to enable the incoming and outgoing calls when an emergency call has been made, should we disable them again or wait for new config sms command from server?
+. in Page 23, what's the metric for SpeedThreshold?
+. If the sim card doesn't have incoming call display service, we will ignore the AllowedNumberDisabled list?
+. how do we initialize the device and account settings, local file or download when installed?
+
+[working]
+. account codes logic not sure what does it mean yet (P 7)
+
+[done and wait to test]
+
+==============================================================================================================
+[notes]
+. CVL-ANDROID, ANDROID
+. schedule:
+  1. [tested] If there are no entries, all the calls are allowed, <RestrictedNumbers> applies.
+  2. [tested] If there are no other entries the first entry defines the configuration.
+  3. [tested] If there was an entry for sunday at 00:00 the conditions set by that entry are defined until another entry is configured.
+
+[Questions Solved]
+. in Page 6, we are not sure what does account codes mean and how the logic work.
+. for FTP transfer, what's the file name that we use to package the data and send to the server?
+. in Page 22, we don't know which FTPRemoteDir should we use for real.
+. for sms LOCATE command, the real sms sent from the server looks like: "(###LOCATE###) ", it contains a trailing space and no additional information, according to the spec, the additional information for LOCATE seems mandatory and it should be something like "(###LOCATE###)*1" 
+. the sms TRACK command looks like:  "(###TRACK###) *2/1", again it contains a space and using '/' as the separater instead of '|' indicated in the spec.
+. for UPDATECFG and UPDATEACCT commands, we don't know how to include the restrict, redirect or allowedNumberDisabled list in our profile from the web pages, thus not able to test
+. the GSP reading should be triggered by the schedule DOWList or TRACK command or both? How does it work? Do they share the same interval? More explanation?
+  (seems not, the spec may think the speed can be acquired free, we do not bother for now)
+. what's the relationship bewteen the enableGPS item and the GPS item in the DOWItem? Kinda understood but still not quite clear on it.
+  (2 different controls, enableGPS controls on/off, GPS iterm in DOWItem controls the interval)
+. not sure when to send the VOICE, SMS, DEVICE records to server? on amount or server command?
+  (just send each record whenever a call or sms happened)
+
+[done]
+. P11, rework the call flow feature according to figure 3
+. location tracking, queue up all the records before sending, do not send every time (P 6)
+. move ftp and geo stuff into a util class
+. buffer records upon ftp failure or roaming
+. FTP file name not sure!! (not important, might be renamed by the server immediately)
+. check why sms listener doesn't work (because the parser rejects message which has many trailing spaces)
+. migrate the GSP upload information to use the LOCATION Record
+. P8, GPS setting in schedule section, this is the time interval we need to use in the location update
+  (0: set a very large interval; 1: set "0"; >1: set the value)
+. P8, seems the schedule triggers and controls the GPS reading which can determine the speed and thus to control other settings in the <DOWList>
+  (scheduler controls the GPS reading)
+. use MaxVDilution and MaxHDilution to decide if keep the record (P 6)
+. P13, voice event record and upload feature: incoming and outgoing
+. record outgoing sms and send the record
+. delete the command sms if possible (P 6)
+. P13, sms event record and upload feature
+. SMS control

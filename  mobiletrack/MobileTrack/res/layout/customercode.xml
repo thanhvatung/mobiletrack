@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" 
+        android:background="@drawable/actionbar_compat_background">
+		<include layout="@layout/ui_actionbar" />
+        <TextView android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp" android:text="Please enter your phone number below..." android:gravity="center_horizontal" style = "@style/DashboardButton"></TextView>
+        <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/phone_number"></EditText>
+        <TextView android:cursorVisible="false" android:id="@+id/textView1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Please enter your customer code below..." android:gravity="center_horizontal" android:textSize="18sp" style = "@style/DashboardButton"></TextView>
+        <EditText android:text="" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/customer_code"></EditText>
+       
+        <LinearLayout
+            android:id="@+id/linearLayout5" 
+            android:layout_height="wrap_content" 
+            android:layout_width="wrap_content" 
+            android:baselineAligned="false" 
+            android:paddingBottom="10sp" 
+            android:paddingTop="10sp" >
+
+            <Button
+                android:id="@+id/button_initialize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Initialize"
+                android:width="100sp" />
+
+            <CheckBox
+                android:id="@+id/box_eula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                     
+                 />
+        </LinearLayout>
+        <LinearLayout 
+            android:id="@+id/linearLayout2" 
+            android:layout_height="wrap_content" 
+            android:layout_width="wrap_content" 
+            android:baselineAligned="false" 
+            android:paddingBottom="10sp" 
+            android:paddingTop="10sp">
+            
+            <Button android:text="Update Configuration" 
+                android:id="@+id/button_config" 
+                android:layout_height="wrap_content" 
+                android:layout_width="wrap_content">                
+            </Button>
+            <Button android:layout_height="wrap_content" 
+                android:id="@+id/button_codes" 
+                android:text="Update Client Codes" 
+                android:layout_width="wrap_content">               
+            </Button>
+        </LinearLayout>
+       
+         <LinearLayout 
+            android:id="@+id/linearLayout4" 
+            android:layout_height="wrap_content" 
+            android:layout_width="wrap_content" 
+            android:baselineAligned="false" 
+            android:paddingBottom="10sp" 
+            android:paddingTop="10sp">    
+            
+        	<Button android:layout_width="wrap_content" 
+        	    android:id="@+id/button_eula" 
+        	    android:layout_height="wrap_content" 
+        	    android:width="100sp" 
+        	    android:text="@string/isi_view" 
+        	    android:textSize="12sp">
+        	</Button>
+   
+        	<Button android:layout_height="wrap_content" 
+        	    android:id="@+id/button_return"
+        	    android:text="Close" 
+        	    android:layout_width="wrap_content" 
+        	    android:width="100sp">       	    
+        	</Button>
+        </LinearLayout>
+    </LinearLayout>

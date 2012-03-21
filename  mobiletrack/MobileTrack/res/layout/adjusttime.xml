@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+       <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:orientation="horizontal" android:gravity="center_horizontal"
+           android:background="@drawable/actionbar_compat_background">
+           <LinearLayout android:id="@+id/linearLayout2" android:layout_width="wrap_content" android:layout_height="fill_parent" android:orientation="vertical" android:gravity="center_horizontal">
+               <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="Hour" android:textSize="18sp" style = "@style/DashboardButton"></TextView>
+               <EditText android:id="@+id/numhours" android:layout_height="wrap_content" android:text="00" android:layout_width="wrap_content" android:inputType="number" android:numeric="integer" android:selectAllOnFocus="true" android:width="75sp"></EditText>
+           </LinearLayout>
+           <LinearLayout android:id="@+id/linearLayout3" android:orientation="vertical" android:layout_width="wrap_content" android:gravity="center_horizontal" android:layout_height="wrap_content">
+               <TextView android:layout_width="wrap_content" android:id="@+id/textView3" android:layout_height="wrap_content" android:paddingLeft="10px" android:paddingRight="10px" android:text="Minute" android:textSize="18sp" style = "@style/DashboardButton"></TextView>
+               <EditText android:id="@+id/numminutes" android:layout_height="wrap_content" android:layout_width="wrap_content" android:inputType="number" android:numeric="integer" android:selectAllOnFocus="true" android:text="00" android:width="75sp"></EditText>
+               <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/confirm" android:text="Confirm" android:width="100sp"></Button>
+           </LinearLayout>
+           <LinearLayout android:id="@+id/linearLayout4" android:layout_height="wrap_content" android:orientation="vertical" android:layout_width="wrap_content" android:gravity="center_horizontal">
+               <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:text="Second" android:textSize="18sp" style = "@style/DashboardButton"></TextView>
+               <EditText android:id="@+id/numseconds" android:layout_width="wrap_content" android:layout_height="wrap_content" android:inputType="number" android:numeric="integer" android:selectAllOnFocus="true" android:width="75sp" android:text="00"></EditText>
+           </LinearLayout>
+        </LinearLayout>
+

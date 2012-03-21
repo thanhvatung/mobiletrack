@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
+      android:background="@drawable/actionbar_compat_background"
+      android:layout_height="wrap_content"
+      android:layout_width="fill_parent"
+      android:layout_gravity="center"
+      android:paddingLeft="20dip"
+      android:paddingRight="20dip">
+    <TextView android:id="@+id/numberView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:textSize="20sp" android:textStyle="bold"></TextView>
+   <TextView
+        android:id="@+id/account_code_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:textSize="16sp"
+         android:text="@string/account_code"
+         style = "@style/DashboardButton"
+   />
+   <Spinner 
+        android:id="@+id/accoundCodeSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/account_code"/>
+ 
+    <TextView
+        android:id="@+id/matter_code_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:textSize="16sp"
+        android:text="@string/matter_code"
+        style = "@style/DashboardButton"
+   />
+   <Spinner 
+        android:id="@+id/matterCodeSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/matter_code"
+    />
+   <TextView
+        android:id="@+id/info_comment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dip"
+        android:textSize="16sp"
+        android:text="@string/comment"
+        style = "@style/DashboardButton"
+   />
+   <EditText
+        android:id="@+id/text_comment"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_marginBottom="20dip"
+        android:textSize="16sp"
+        android:text="@string/space"
+        android:background="@android:drawable/editbox_background"
+   />
+   <TableLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center"
+        android:stretchColumns="*">
+
+        <TableRow>
+            <Button
+               android:id="@+id/accept_button"
+               android:text="@string/accept_label" />
+            <Button
+               android:id="@+id/cancel_button"
+               android:text="@string/cancel_label" />
+        </TableRow>
+   </TableLayout>
+</LinearLayout>

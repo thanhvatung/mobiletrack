@@ -1,0 +1,69 @@
+<!--ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" 
+	android:id="@+id/scrollView1" -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/actionbar_compat_background"
+	android:layout_gravity="center|center_horizontal" android:orientation="vertical"
+	android:gravity="center_horizontal">
+	<LinearLayout android:id="@+id/time_expense_list"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:gravity="center_horizontal" android:layout_width="fill_parent">
+		<TextView android:id="@+id/textView1" android:text="Elapsed Time:"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:textSize="20sp"
+			style = "@style/DashboardButton"></TextView>
+		<Chronometer android:text="Chronometer"
+			android:layout_height="wrap_content" android:id="@+id/chronometer1"
+			android:layout_width="wrap_content" android:textSize="25sp"
+			android:textColor="@color/accent_1"></Chronometer>
+		<LinearLayout android:id="@+id/linearLayout1"
+			android:layout_height="wrap_content" android:orientation="horizontal"
+			android:gravity="center" android:layout_width="fill_parent">
+			<Button android:layout_height="wrap_content" android:text="@string/start_timer"
+				android:layout_width="wrap_content" android:id="@+id/start_stop_button"
+				android:width="100sp"></Button>
+			<Button android:layout_height="wrap_content" android:text="@string/adjust_timer"
+				android:layout_width="wrap_content" android:id="@+id/adjust_button"
+				android:width="100sp"></Button>
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/linearLayout3"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:layout_width="fill_parent">
+		<TextView android:id="@+id/textView2" android:text="@string/client_string"
+			android:layout_height="wrap_content" android:layout_width="wrap_content" 
+			style = "@style/DashboardButton"></TextView>
+		<Spinner android:layout_height="wrap_content" android:id="@+id/account_spinner"
+			android:layout_width="fill_parent" android:prompt="@string/account_prompt"></Spinner>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:layout_width="fill_parent">
+		<TextView android:id="@+id/TextView01" android:text="@string/matter_string"
+			android:layout_height="wrap_content" android:layout_width="wrap_content" style = "@style/DashboardButton"></TextView>
+		<Spinner android:layout_height="wrap_content" android:id="@+id/matter_spinner"
+			android:layout_width="fill_parent" android:prompt="@string/matter_prompt"></Spinner>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout02"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:layout_width="fill_parent">
+		<TextView android:id="@+id/TextView02" android:text="@string/record_category"
+			android:layout_height="wrap_content" android:layout_width="wrap_content" style = "@style/DashboardButton"></TextView>
+		<Spinner android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:id="@+id/event_spinner"
+			android:prompt="@string/category_prompt"></Spinner>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/linearLayout2"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<TextView android:layout_width="wrap_content" android:id="@+id/textView4"
+			android:layout_height="wrap_content" android:text="@string/record_comment" style = "@style/DashboardButton"></TextView>
+		<EditText android:layout_height="wrap_content" android:text=""
+			android:layout_width="fill_parent" android:id="@+id/comment"
+			android:selectAllOnFocus="true"></EditText>
+	</LinearLayout>
+	<Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/savebutton"
+		android:text="Save Record" android:width="100sp"></Button>
+</LinearLayout>

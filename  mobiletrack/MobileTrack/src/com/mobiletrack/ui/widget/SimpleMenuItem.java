@@ -1,0 +1,245 @@
+
+package com.mobiletrack.ui.widget;
+
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+//import android.view.ActionProvider;
+import android.view.ActionProvider;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.SubMenu;
+import android.view.View;
+
+public class SimpleMenuItem implements MenuItem {
+
+    private SimpleMenu mMenu;
+
+    private final int mId;
+    private final int mOrder;
+    private CharSequence mTitle;
+    private CharSequence mTitleCondensed;
+    private Drawable mIconDrawable;
+    private int mIconResId = 0;
+    private boolean mEnabled = true;
+
+    public SimpleMenuItem(SimpleMenu menu, int id, int order, CharSequence title) {
+        mMenu = menu;
+        mId = id;
+        mOrder = order;
+        mTitle = title;
+    }
+
+    public int getItemId() {
+        return mId;
+    }
+
+    public int getOrder() {
+        return mOrder;
+    }
+
+    public MenuItem setTitle(CharSequence title) {
+        mTitle = title;
+        return this;
+    }
+
+    public MenuItem setTitle(int titleRes) {
+        return setTitle(mMenu.getContext().getString(titleRes));
+    }
+
+    public CharSequence getTitle() {
+        return mTitle;
+    }
+
+    public MenuItem setTitleCondensed(CharSequence title) {
+        mTitleCondensed = title;
+        return this;
+    }
+
+    public CharSequence getTitleCondensed() {
+        return mTitleCondensed != null ? mTitleCondensed : mTitle;
+    }
+
+   public MenuItem setIcon(Drawable icon) {
+        mIconResId = 0;
+        mIconDrawable = icon;
+        return this;
+    }
+
+    public MenuItem setIcon(int iconResId) {
+        mIconDrawable = null;
+        mIconResId = iconResId;
+        return this;
+    }
+
+    public Drawable getIcon() {
+        if (mIconDrawable != null) {
+            return mIconDrawable;
+        }
+
+        if (mIconResId != 0) {
+            return mMenu.getResources().getDrawable(mIconResId);
+        }
+
+        return null;
+    }
+
+    public MenuItem setEnabled(boolean enabled) {
+        mEnabled = enabled;
+        return this;
+    }
+
+    public boolean isEnabled() {
+        return mEnabled;
+    }
+
+    // No-op operations. We use no-ops to allow inflation from menu XML.
+
+    public int getGroupId() {
+        return 0;
+    }
+
+    public View getActionView() {
+        return null;
+    }
+
+    public MenuItem setIntent(Intent intent) {
+        // Noop
+        return this;
+    }
+
+    public Intent getIntent() {
+        return null;
+    }
+
+    public MenuItem setShortcut(char c, char c1) {
+        // Noop
+        return this;
+    }
+
+    public MenuItem setNumericShortcut(char c) {
+        // Noop
+        return this;
+    }
+
+    public char getNumericShortcut() {
+        return 0;
+    }
+
+    public MenuItem setAlphabeticShortcut(char c) {
+        // Noop
+        return this;
+    }
+
+    public char getAlphabeticShortcut() {
+        return 0;
+    }
+
+    public MenuItem setCheckable(boolean b) {
+        // Noop
+        return this;
+    }
+
+    public boolean isCheckable() {
+        return false;
+    }
+
+    public MenuItem setChecked(boolean b) {
+        // Noop
+        return this;
+    }
+
+    public boolean isChecked() {
+        return false;
+    }
+
+    public MenuItem setVisible(boolean b) {
+        // Noop
+        return this;
+    }
+
+    public boolean isVisible() {
+        return true;
+    }
+
+    public boolean hasSubMenu() {
+        return false;
+    }
+
+    public SubMenu getSubMenu() {
+        return null;
+    }
+
+    public MenuItem setOnMenuItemClickListener(
+            OnMenuItemClickListener onMenuItemClickListener) {
+        // Noop
+        return this;
+    }
+
+    public ContextMenu.ContextMenuInfo getMenuInfo() {
+        return null;
+    }
+
+    public void setShowAsAction(int i) {
+        // Noop
+    }
+
+    public MenuItem setActionView(View view) {
+        // Noop
+        return this;
+    }
+
+    public MenuItem setActionView(int i) {
+        // Noop
+        return this;
+    }
+
+	public boolean collapseActionView() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean expandActionView() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+//	public ActionProvider getActionProvider() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	public boolean isActionViewExpanded() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+//	public MenuItem setActionProvider(ActionProvider actionProvider) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	public MenuItem setOnActionExpandListener(OnActionExpandListener listener) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	public MenuItem setShowAsActionFlags(int actionEnum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ActionProvider getActionProvider() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MenuItem setActionProvider(ActionProvider actionProvider) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MenuItem setOnActionExpandListener(OnActionExpandListener listener) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

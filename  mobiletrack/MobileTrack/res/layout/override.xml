@@ -1,0 +1,10 @@
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_height="fill_parent" android:gravity="center_horizontal"
+        android:background="@drawable/actionbar_compat_background">
+        <TextView android:id="@+id/password_instructions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp" android:text="Please enter your override password" style = "@style/DashboardButton"></TextView>
+        <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="" android:id="@+id/password_field"></EditText>
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:id="@+id/linearLayout2">
+            <Button android:layout_height="wrap_content" android:id="@+id/button_override" android:layout_width="wrap_content" android:text="Override"></Button>
+            <Button android:layout_height="wrap_content" android:id="@+id/button_cancel" android:layout_width="wrap_content" android:text="Cancel"></Button>
+        </LinearLayout>
+    </LinearLayout>

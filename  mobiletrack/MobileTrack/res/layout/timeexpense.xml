@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/actionbar_compat_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:layout_gravity="center|center_horizontal"
+    >
+    <include layout="@layout/ui_actionbar" />
+    <TextView android:layout_gravity="center_horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textStyle="bold" android:text="@string/time_expense_title" android:id="@+id/time_expense_title" android:textSize="20sp" android:layout_marginBottom="12sp"
+        style = "@style/DashboardButton"></TextView>
+    <ScrollView android:layout_height="wrap_content" android:id="@+id/scrollView1" android:layout_width="fill_parent">
+        <LinearLayout android:id="@+id/time_expense_list" android:layout_height="wrap_content" android:orientation="vertical" android:layout_width="fill_parent"
+            ></LinearLayout>
+    </ScrollView>
+</LinearLayout>

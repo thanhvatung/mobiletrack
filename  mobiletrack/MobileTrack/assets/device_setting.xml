@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeviceSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <AppTerminated>false</AppTerminated>
+    <idDeviceSettings>4</idDeviceSettings>
+    <szConfigurationName>Default</szConfigurationName>
+    <Key>123456789123456789</Key>
+    <PhoneNumber>123454321</PhoneNumber>
+    <tiReceiverType>0</tiReceiverType>
+    <ReceiverServer>ftp.xelex.net</ReceiverServer>
+    <UserName>MobileTrack</UserName>
+    <Password>mobiletrackftp1327@asgard</Password>
+    <FTPRemoteDir>Out/XELEX/</FTPRemoteDir>
+    <ConnectionTimeout>10</ConnectionTimeout>
+    <TriesBeforeFail>5</TriesBeforeFail>
+    <EnableGPS>true</EnableGPS>
+    <EnableData>true</EnableData>
+    <EnableSMS>true</EnableSMS>
+    <EnableVoice>true</EnableVoice>
+    <EnabledCallLocation>false</EnabledCallLocation>
+    <CallLocationTimeout>5</CallLocationTimeout>
+    <SpeedThreshold>30</SpeedThreshold>
+    <DisableRoamingUpload>true</DisableRoamingUpload>
+    <MaxHDilution>6</MaxHDilution>
+    <MinHDilution>6</MinHDilution>
+    <UseAccountCodes>1</UseAccountCodes>
+
+    <AllowedNumbersDisabled>
+	<PhoneNumberItem Number="411" Style="Exact"/>
+	<PhoneNumberItem Number="911" Style="Exact"/>
+	<PhoneNumberItem Number="1800" Style="StartsWith"/>
+	<PhoneNumberItem Number="1234567" Style="EndsWith"/>
+    </AllowedNumbersDisabled>
+
+    <DOWList>
+	<DOWItem DOW="0" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="0"/>
+	<DOWItem DOW="1" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="0"/>
+	<DOWItem DOW="2" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="0"/>
+	<DOWItem DOW="3" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="0"/>
+	<DOWItem DOW="4" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="12"/>
+	<DOWItem DOW="5" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="12"/>
+	<DOWItem DOW="6" T="0" VI="true" VO="true" TXT="true" VIS="true" VOS="true" TXTS="true" GPS="12"/>
+    </DOWList>
+
+    <RestrictedNumbers>
+	<PhoneNumberItem Number="011" Style="StartsWith"/>
+	<PhoneNumberItem Number="+" Style="StartsWith"/>
+	<PhoneNumberItem Number="999" Style="StartsWith"/>
+    </RestrictedNumbers>
+
+    <RedirectList>
+	<RedirectItem Number="1234567" Style="Exact" RedirectTo="7654321"/>
+    </RedirectList>
+</DeviceSettings>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.mobiletrack" android:versionCode="249" android:versionName="2.3.5">
+	package="com.mobiletrack" android:versionCode="249" android:versionName="2.3.6">
 	<!-- used to communicate with server: FTP transfer -->
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application 

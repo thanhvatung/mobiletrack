@@ -56,8 +56,7 @@ public class AdjustTimeActivity extends Activity implements OnClickListener,
 	 */
 
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.confirm: {
+		if (v.getId() == R.id.confirm) {
 			String hrs = (((EditText) findViewById(R.id.numhours)).getText()
 					.toString());
 			if (hrs.equals(""))
@@ -75,8 +74,6 @@ public class AdjustTimeActivity extends Activity implements OnClickListener,
 			this.getIntent().putExtra("SEC", Integer.valueOf(sec));
 			setResult(RESULT_OK, this.getIntent());
 			finish();
-			break;
-		}
 		}
 	}
 

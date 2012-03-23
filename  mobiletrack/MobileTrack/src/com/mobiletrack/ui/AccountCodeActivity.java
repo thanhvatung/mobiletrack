@@ -225,40 +225,37 @@ OnItemSelectedListener, OnClickListener {
 	 * @Override OnClickListener
 	 */
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.accept_button:
+		if (v.getId() == R.id.accept_button) {
 			// need to add account code and matter code along with comments,
 			// then send
 			if (_currentAccoutCodeItem == null) {
+				LocationUploadService.sendVoiceSMSRecordWithLocation(this,	_voiceRecord);
+			}
+			else
+			{
+				String ac = _currentAccoutCodeItem.getCode();
+				List<MatterCode> matterCodes = _currentAccoutCodeItem
+				.getMatterCodeList();
+				if (matterCodes != null && matterCodes.size() > 0) {
+					String mc = matterCodes.get(_selectedMatterCodeId).getCode();
+					_voiceRecord._matterCode = (mc);
+				}
+				_voiceRecord._accountCode =(ac);
+				_voiceRecord._accountComment = (_textViewComment.getText()
+						.toString());
 				LocationUploadService.sendVoiceSMSRecordWithLocation(this,
 						_voiceRecord);
-				break;
-				//				finish();
-				//				return;
 			}
-			String ac = _currentAccoutCodeItem.getCode();
-			List<MatterCode> matterCodes = _currentAccoutCodeItem
-			.getMatterCodeList();
-			if (matterCodes != null && matterCodes.size() > 0) {
-				String mc = matterCodes.get(_selectedMatterCodeId).getCode();
-				_voiceRecord._matterCode = (mc);
-			}
-			_voiceRecord._accountCode =(ac);
-			_voiceRecord._accountComment = (_textViewComment.getText()
-					.toString());
-			LocationUploadService.sendVoiceSMSRecordWithLocation(this,
-					_voiceRecord);
-			break;
-		case R.id.cancel_button:
+		} else if (v.getId() == R.id.cancel_button) {
 			// nothing to add, just send
 			// FTPTransferManager.sendRecordToServer(_voiceRecord.toString(),
 			// this);
 			LocationUploadService.sendVoiceSMSRecordWithLocation(this,
 					_voiceRecord);
-			break;
-		default:
-			break;
+		} else {
 		}
+		
+		
 		CallHandler.callStack.pop();
 		CallHandler.saveLists(this);
 		if (CallHandler.callStack.empty()){

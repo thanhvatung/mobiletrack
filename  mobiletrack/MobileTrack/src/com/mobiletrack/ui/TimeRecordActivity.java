@@ -187,8 +187,7 @@ public class TimeRecordActivity extends Activity implements
 
 	public void onClick(View v) {
 
-		switch (v.getId()) {
-		case R.id.savebutton: {
+		if (v.getId() == R.id.savebutton) {
 			// expenseRecord.Cost = Double.valueOf(((EditText)
 			// findViewById(R.id.cost)).getText().toString());
 			expenseRecord.Comment = ((EditText) findViewById(R.id.comment))
@@ -215,9 +214,7 @@ public class TimeRecordActivity extends Activity implements
 			this.getIntent().putExtra("RETURNID", position);
 			setResult(RESULT_OK, this.getIntent());
 			finish();
-			break;
-		}
-		case R.id.start_stop_button: {
+		} else if (v.getId() == R.id.start_stop_button) {
 			if (expenseRecord.TimerStarted) {
 				long stoppedMilliseconds = 0;
 				String chronoText = timer.getText().toString();
@@ -252,9 +249,7 @@ public class TimeRecordActivity extends Activity implements
 			expenseRecord.TimerStarted = !expenseRecord.TimerStarted;
 			expenseRecord.EventTimeMS = System.currentTimeMillis();
 			setText();
-			break;
-		}
-		case R.id.adjust_button: {
+		} else if (v.getId() == R.id.adjust_button) {
 			Intent intent = new Intent().setClass(this,
 					AdjustTimeActivity.class);
 			String chronoText = timer.getText().toString();
@@ -272,10 +267,7 @@ public class TimeRecordActivity extends Activity implements
 					.putExtra("com.mobiletrack.MINUTES", minutes)
 					.putExtra("com.mobiletrack.SECONDS", seconds);
 			startActivityForResult(intent, 1);
-			break;
-		}
-		default:
-			break;
+		} else {
 		}
 	}
 

@@ -150,17 +150,14 @@ public class TimeExpenseActivity extends Activity implements OnClickListener {
 
 	
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
-		switch (item.getItemId()) {
-		case R.id.new_time:
+		if (item.getItemId() == R.id.new_time) {
 			newTime();
 			return true;
-		case R.id.new_expense:
+		} else if (item.getItemId() == R.id.new_expense) {
 			newExpense();
 			return true;
-		case R.id.delete_all_records: {
+		} else if (item.getItemId() == R.id.delete_all_records) {
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
-
 			dialog.setMessage("Are you sure you want to delete all records?");
 			dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes",
 					new DialogInterface.OnClickListener() {
@@ -177,8 +174,7 @@ public class TimeExpenseActivity extends Activity implements OnClickListener {
 			});
 			dialog.show();
 			return true;
-		}
-		case R.id.submit_all_records: {
+		} else if (item.getItemId() == R.id.submit_all_records) {
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
 			dialog.setMessage("Are you sure you want to submit all records?");
 			dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes",
@@ -197,12 +193,10 @@ public class TimeExpenseActivity extends Activity implements OnClickListener {
 				}
 			});
 			dialog.show();
-
 			return true;
-		}
-		case R.id.close_menu:
+		} else if (item.getItemId() == R.id.close_menu) {
 			return true;
-		default:
+		} else {
 			return super.onOptionsItemSelected(item);
 		}
 	}
@@ -264,13 +258,11 @@ public class TimeExpenseActivity extends Activity implements OnClickListener {
 	public boolean onContextItemSelected(MenuItem item) {
 		final AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 		.getMenuInfo();
-		switch (item.getItemId()) {
-		case R.id.view_record:
+		if (item.getItemId() == R.id.view_record) {
 			viewRecord(info.position);
 			return true;
-		case R.id.delete_record: {
+		} else if (item.getItemId() == R.id.delete_record) {
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
-
 			dialog.setMessage("Are you sure you want to delete this record?");
 			dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes",
 					new DialogInterface.OnClickListener() {
@@ -287,10 +279,8 @@ public class TimeExpenseActivity extends Activity implements OnClickListener {
 			});
 			dialog.show();
 			return true;
-		}
-		case R.id.submit_record: {
+		} else if (item.getItemId() == R.id.submit_record) {
 			AlertDialog dialog = new AlertDialog.Builder(this).create();
-
 			dialog.setMessage("Are you sure you want to submit this record?");
 			dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes",
 					new DialogInterface.OnClickListener() {
@@ -307,10 +297,9 @@ public class TimeExpenseActivity extends Activity implements OnClickListener {
 			});
 			dialog.show();
 			return true;
-		}
-		case R.id.close_menu:
+		} else if (item.getItemId() == R.id.close_menu) {
 			return true;
-		default:
+		} else {
 			return super.onContextItemSelected(item);
 		}
 	}

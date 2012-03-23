@@ -54,62 +54,43 @@ public class DialerActivity extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.num1_button:
+		if (v.getId() == R.id.num1_button) {
 			mPhoneNumber += "" + 1;
-			break;
-		case R.id.num2_button:
+		} else if (v.getId() == R.id.num2_button) {
 			mPhoneNumber += "" + 2;
-			break;
-		case R.id.num3_button:
+		} else if (v.getId() == R.id.num3_button) {
 			mPhoneNumber += "" + 3;
-			break;
-		case R.id.num4_button:
+		} else if (v.getId() == R.id.num4_button) {
 			mPhoneNumber += "" + 4;
-			break;
-		case R.id.num5_button:
+		} else if (v.getId() == R.id.num5_button) {
 			mPhoneNumber += "" + 5;
-			break;
-		case R.id.num6_button:
+		} else if (v.getId() == R.id.num6_button) {
 			mPhoneNumber += "" + 6;
-			break;
-		case R.id.num7_button:
+		} else if (v.getId() == R.id.num7_button) {
 			mPhoneNumber += "" + 7;
-			break;
-		case R.id.num8_button:
+		} else if (v.getId() == R.id.num8_button) {
 			mPhoneNumber += "" + 8;
-			break;
-		case R.id.num9_button:
+		} else if (v.getId() == R.id.num9_button) {
 			mPhoneNumber += "" + 9;
-			break;
-		case R.id.num0_button:
+		} else if (v.getId() == R.id.num0_button) {
 			mPhoneNumber += "" + 0;
-			break;
-		case R.id.star_button:
+		} else if (v.getId() == R.id.star_button) {
 			mPhoneNumber += "*";
-			break;
-		case R.id.pound_button:
+		} else if (v.getId() == R.id.pound_button) {
 			mPhoneNumber += "#";
-			break;
-
-		case R.id.send_button:
+		} else if (v.getId() == R.id.send_button) {
 			try {
 				CallApplication.launch(this, mPhoneNumber);
 			} catch (Exception e) {
 				Log.e("helloandroid dialing example", "Call failed", e);
 			}
-			break;
-		case R.id.contacts_button:
+		} else if (v.getId() == R.id.contacts_button) {
 			showContacts();
-			break;
-		case R.id.delete_button:
+		} else if (v.getId() == R.id.delete_button) {
 			if (mPhoneNumber.length() > 0)
 				mPhoneNumber = mPhoneNumber.substring(0,
 						mPhoneNumber.length() - 1);
-			break;
-		default:
-			break;
-		// More buttons go here (if any) ...
+		} else {
 		}
 
 		updateNumberField();

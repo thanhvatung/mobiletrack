@@ -139,12 +139,10 @@ public class FamilyMapActivity extends MapActivity {
 	}
 	
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
-		switch (item.getItemId()) {
-		case R.id.menu_refresh:
+		if (item.getItemId() == R.id.menu_refresh) {
 			refreshMap();
 			return true;
-		default:
+		} else {
 			return super.onOptionsItemSelected(item);
 		}
 	}

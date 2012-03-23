@@ -29,6 +29,7 @@ public class NetworkRecord extends Record {
 
 	private static final String NETWORK_HOME = "HOME";
 	private static final String NETWORK_ROAM = "ROAM";
+	private static final String NETWORK_ROAM_NATIONAL = "ROAMN";
 
 	public NetworkRecord(Context context) {
 		super();
@@ -57,12 +58,25 @@ public class NetworkRecord extends Record {
 	// only generate the general information
 	// if the phone call has been established
 	public void generateGeneralInfo(Context context) {
-		ServiceState servState = new ServiceState();
-		_network = (servState.getRoaming() ? NETWORK_ROAM : NETWORK_HOME);
+		//ServiceState servState = new ServiceState();
+		//_network = (servState.getRoaming() ? NETWORK_ROAM : NETWORK_HOME);
 
-		TelephonyManager teleMgr = (TelephonyManager) context
-		.getSystemService(Context.TELEPHONY_SERVICE);
+		TelephonyManager teleMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		
 		if (teleMgr != null) {
+			//_network = (teleMgr.isNetworkRoaming() ? NETWORK_ROAM : NETWORK_HOME);
+			if(!teleMgr.isNetworkRoaming()){
+				_network = NETWORK_HOME;
+			// roaming is off
+			} else if (teleMgr.getSimCountryIso().equals(teleMgr.getNetworkCountryIso())) {
+				_network = NETWORK_ROAM_NATIONAL;
+			// national roaming
+			} else {
+				_network = NETWORK_ROAM;
+			// international roaming
+			}
+
+			
 			if (teleMgr.getCellLocation() == null)
 			{
 				_cellId = -1;

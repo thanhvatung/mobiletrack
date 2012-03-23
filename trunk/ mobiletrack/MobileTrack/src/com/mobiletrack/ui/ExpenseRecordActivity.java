@@ -175,8 +175,7 @@ public class ExpenseRecordActivity extends Activity implements
 	}
 
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.savebutton:
+		if (v.getId() == R.id.savebutton) {
 			expenseRecord.Cost = Double
 					.valueOf(((EditText) findViewById(R.id.cost)).getText()
 							.toString());
@@ -187,9 +186,7 @@ public class ExpenseRecordActivity extends Activity implements
 			this.getIntent().putExtra("RETURNID", position);
 			setResult(RESULT_OK, this.getIntent());
 			finish();
-			break;
-		default:
-			break;
+		} else {
 		}
 		finish();
 	}

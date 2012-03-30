@@ -5,17 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-
-import com.mobiletrack.config.Config;
 
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.location.Location;
 import android.os.Environment;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.Toast;
+
+import com.mobiletrack.config.Config;
 
 public class LocationLog {
 	//for test only, record will be saved into a file

@@ -4,14 +4,6 @@ package com.mobiletrack.ui.widget;
 //import com.xelex.test.util.AnalyticsUtils;
 
 
-import com.mobiletrack.R;
-import com.mobiletrack.ui.CustomerCodeActivity;
-import com.mobiletrack.ui.DescriptionActivity;
-import com.mobiletrack.ui.ExpenseRecordActivity;
-import com.mobiletrack.ui.FamilyMapActivity;
-import com.mobiletrack.ui.MTActivity;
-import com.mobiletrack.ui.TimeExpenseActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +11,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.mobiletrack.R;
+import com.mobiletrack.ui.CustomerCodeActivity;
+import com.mobiletrack.ui.FamilyMapActivity;
+import com.mobiletrack.ui.TimeExpenseActivity;
 
 public class DashboardFragment extends Fragment {
 

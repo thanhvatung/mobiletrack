@@ -4,11 +4,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -16,25 +11,12 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import com.mobiletrack.R;
-import com.mobiletrack.config.Config;
-import com.mobiletrack.map.FamilyItemizedOverlay;
-import com.mobiletrack.map.FamilyLocationXMLHandler;
-import com.mobiletrack.util.ServiceStarter;
-
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -42,6 +24,11 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.Overlay;
+import com.mobiletrack.R;
+import com.mobiletrack.config.Config;
+import com.mobiletrack.map.FamilyItemizedOverlay;
+import com.mobiletrack.map.FamilyLocationXMLHandler;
+import com.mobiletrack.util.ServiceStarter;
 
 public class FamilyMapActivity extends MapActivity {
 

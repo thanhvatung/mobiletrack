@@ -2,26 +2,21 @@ package com.mobiletrack.ui.widget;
 
 import java.util.ArrayList;
 
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
+
 import com.mobiletrack.R;
 import com.mobiletrack.config.Config;
 import com.mobiletrack.record.ExpenseRecord;
 import com.mobiletrack.util.ServiceStarter;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
-
 
 public class HomeActivity extends BaseActivity {
-    private static final String TAG = "HomeActivity";
+    //private static final String TAG = "HomeActivity";
     private Config config;
     ArrayList<ExpenseRecord> records;
-	private int id = 0;
+	//private int id = 0;
 //    private TagStreamFragment mTagStreamFragment;
 
     @Override

@@ -1,22 +1,18 @@
 package com.mobiletrack.ui.widget;
 
-import com.mobiletrack.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.mobiletrack.R;
 
 public class ActivityHelper {
     protected Activity mActivity;

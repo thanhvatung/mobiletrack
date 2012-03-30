@@ -4,19 +4,6 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.os.Vibrator;
-
-import java.lang.reflect.Method;
-
-import com.mobiletrack.handler.BluetoothHeadset;
-
-import android.app.IntentService;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.AudioManager;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;

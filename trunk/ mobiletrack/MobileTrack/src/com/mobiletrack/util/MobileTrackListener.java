@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.mobiletrack.config.Config;
-import com.mobiletrack.record.LocationRecord;
-import com.mobiletrack.service.FTPTransferManager;
 import com.mobiletrack.service.LocationTrackService;
 
 public class MobileTrackListener implements LocationListener {

@@ -1,33 +1,24 @@
 package com.mobiletrack.handler;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.nio.CharBuffer;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.datatype.Duration;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,21 +27,16 @@ import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.mobiletrack.R;
 import com.mobiletrack.config.Config;
 import com.mobiletrack.config.Config.GPSItemInfo;
-import com.mobiletrack.monitor.DataMonitor;
-import com.mobiletrack.monitor.SmsMonitor;
 import com.mobiletrack.process.SMSBlockProcess;
 import com.mobiletrack.record.DeviceStatusRecord;
 import com.mobiletrack.record.SMSRecord;
 import com.mobiletrack.record.VoiceSMSRecord;
-import com.mobiletrack.service.BlockIncomingCallService;
 import com.mobiletrack.service.LocationUploadService;
 import com.mobiletrack.service.WipeService;
-import com.mobiletrack.test.LocationLog;
 import com.mobiletrack.ui.CustomerCodeActivity;
 import com.mobiletrack.util.ServiceStarter;
 

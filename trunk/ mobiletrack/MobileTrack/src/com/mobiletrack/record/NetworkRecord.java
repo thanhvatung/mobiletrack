@@ -1,20 +1,13 @@
 package com.mobiletrack.record;
 
 import java.util.Date;
-import java.util.List;
-
-import com.mobiletrack.config.Config;
-
-
-
 
 import android.content.Context;
-import android.telephony.CellLocation;
-import android.telephony.NeighboringCellInfo;
-import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
+
+import com.mobiletrack.config.Config;
 
 public class NetworkRecord extends Record {
 	protected int _cellId;

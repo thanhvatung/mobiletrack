@@ -27,7 +27,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 			R.id.contacts_button, R.id.delete_button, R.id.star_button,
 			R.id.pound_button };
 
-	private View[] mButtonViews;
+	private View[] mButtonViews; 
 
 	/** Called when the activity is first created. */
 	@Override

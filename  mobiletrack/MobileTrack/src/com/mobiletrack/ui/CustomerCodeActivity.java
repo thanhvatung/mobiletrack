@@ -40,12 +40,10 @@ import com.mobiletrack.util.ServiceStarter;
 
 public class CustomerCodeActivity extends BaseActivity implements OnClickListener{
 
-	private static final String SERVICE = "http://www.xtiservice.com/DevService.asmx/GetService?code=";
-	protected static final String CODES = "/getClientCodes?phone=";
-	protected static final String CONFIG = "/getConfig?phone=";
 	private String record;
 	private boolean agreed = false;
 	public static String PHONE_NUMBER;
+	public static String SERVER_BASE;
 	private boolean initSucceed = false;
 	
 	public void onCreate(Bundle savedInstanceState)
@@ -305,6 +303,135 @@ public class CustomerCodeActivity extends BaseActivity implements OnClickListene
 		}
 		Log.i("GUI","phoneNumber: "+ PHONE_NUMBER);
 	}
+
+	
+	public static void GET_SERVER_BASE(Context context)
+	{
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = context.openFileInput("SERVER_BASE");
+			ois = new ObjectInputStream(fis);
+			SERVER_BASE = (String) ois.readObject();
+			ois.close();
+			fis.close();
+		} catch (Exception e) {
+			Log.e(context.getString(R.string.logging_tag),
+					"Got Exception while loading the Lists exp ["
+					+ e.getClass().getName() + "] msg ["
+					+ e.getMessage() + "]");
+			try {
+				if (fis != null)
+					fis.close();
+			} catch (Exception e1) {
+			}
+			try {
+				if (ois != null)
+					ois.close();
+			} catch (Exception e2) {
+			}
+		}
+
+		if (SERVER_BASE == null)
+		{
+			String CCode = "";
+			
+			fis = null;
+			ois = null;
+
+			//------------------
+			//get the Customer Code
+			try {
+				fis = context.openFileInput("CUSTOMER");
+				ois = new ObjectInputStream(fis);
+				CCode = (String) ois.readObject();
+				ois.close();
+				fis.close();
+			} catch (Exception e) {
+				Log.e(context.getString(R.string.logging_tag),
+						"Got Exception while loading the Lists exp ["
+						+ e.getClass().getName() + "] msg ["
+						+ e.getMessage() + "]");
+				try {
+					if (fis != null)
+						fis.close();
+				} catch (Exception e1) {
+				}
+				try {
+					if (ois != null)
+						ois.close();
+				} catch (Exception e2) {
+				}
+			}
+			
+			
+			String toCall = getWebService (Config.SERVICE + CCode);
+			SERVER_BASE = toCall.replaceAll("\\<.*?>","");
+
+			//------------------
+			//Now save the SERVER_BASE
+			FileOutputStream fos = null;
+			ObjectOutputStream oos = null;
+			try {
+				
+				fos = context.openFileOutput("SERVER_BASE", Context.MODE_PRIVATE);
+				oos = new ObjectOutputStream(fos);
+				oos.writeObject(SERVER_BASE);
+				oos.close();
+				fos.close();
+			} catch (Exception e) {
+				Log.e(context.getString(R.string.logging_tag),
+						"Got Exception while saving the Lists exp ["
+						+ e.getClass().getName() + "] msg ["
+						+ e.getMessage() + "]");
+				try {
+					if (fos != null)
+						fos.close();
+				} catch (Exception e1) {
+				}
+				try {
+					if (oos != null)
+						oos.close();
+				} catch (Exception e2) {
+				}
+			}
+			//------------------
+
+			
+			if (SERVER_BASE == null)
+				SERVER_BASE = "";
+		}
+		Log.i("GUI","SERVER_BASE: "+ SERVER_BASE);
+	}
+	
+	
+	
+	private static String getWebService(String string) {
+		try
+		{
+			String address = string;
+			URL url = new URL(address);
+			URLConnection connection = url.openConnection();
+			HttpURLConnection httpConnection = (HttpURLConnection) connection;
+			int responseCode = httpConnection.getResponseCode();
+			if (responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				String input ="";
+				String line;
+				while ((line = in.readLine()) != null) {					
+					input += line;
+				}
+				Log.i("WebService","Webservice url: "+input);
+				return input;
+			}
+		}
+		catch (Exception e)
+		{
+		}
+		return "";
+	}
+
+	
 	/**
 	 * Load the list information from the persistent file
 	 */
@@ -403,38 +530,29 @@ public class CustomerCodeActivity extends BaseActivity implements OnClickListene
 			String params = param[0];
 			if (params.equals("INITIALIZE"))
 			{
-				String toCall = getWebService (SERVICE + record);
-				//		toCall = getURL (toCall);
-				toCall = toCall.replaceAll("\\<.*?>","");
-				if (!( toCall == null || toCall.equals("")))
+				getServerBase();
+				
+				if (!( SERVER_BASE == null || SERVER_BASE.equals("")))
 				{
-					Config.getConfig().update(toCall+ CONFIG + PHONE_NUMBER);
-					//Toast.makeText(this, "Configuration Sucessfully updated.", Toast.LENGTH_LONG).show();
-					toCall = getWebService (SERVICE + record);
-					//		toCall = getURL (toCall);
-					toCall = toCall.replaceAll("\\<.*?>","");
-					if (!( toCall == null || toCall.equals("")))
-					{
-						Config.getConfig().update(toCall+ CODES + PHONE_NUMBER);
-						//Toast.makeText(this, "Configuration Sucessfully updated.", Toast.LENGTH_LONG).show();
-						publishProgress("Initialization sucessful.");
-						publishProgress ("ENABLE");
-						return null;
-					}
-					publishProgress( "Client Codes failed to initialize");
+					Config.getConfig().update(SERVER_BASE+ Config.CONFIG_ServiceCall + PHONE_NUMBER);
+					Config.getConfig().update(SERVER_BASE + Config.CODES_ServiceCall + PHONE_NUMBER);
+					publishProgress("Initialization sucessful.");
+					publishProgress ("ENABLE");
 					return null;
+
 				}
 				publishProgress ("Configuration failed to initialize.");
 			}
 			else if (params.equals("CONFIG"))
 			{
-				String toCall = getWebService (SERVICE + record);
-				//		toCall = getURL (toCall);
-				Log.i("WebService", "to call CONFIG: "+CONFIG);
-				toCall = toCall.replaceAll("\\<.*?>","");
-				if (!( toCall == null || toCall.equals("")))
+				if ( SERVER_BASE == null || SERVER_BASE.equals(""))
 				{
-					Config.getConfig().update(toCall+ CONFIG + PHONE_NUMBER);
+					getServerBase();
+				}
+				
+				if (!(SERVER_BASE == null || SERVER_BASE.equals("")))
+				{
+					Config.getConfig().update(SERVER_BASE+ Config.CONFIG_ServiceCall + PHONE_NUMBER);
 					//Toast.makeText(this, "Configuration Sucessfully updated.", Toast.LENGTH_LONG).show();
 					publishProgress ("Configuration Sucessfully updated.");
 					publishProgress ("ENABLE");
@@ -444,12 +562,14 @@ public class CustomerCodeActivity extends BaseActivity implements OnClickListene
 			}
 			else if (params.equals("CODES"))
 			{
-				String toCall = getWebService (SERVICE + record);
-				toCall = toCall.replaceAll("\\<.*?>","");
-				//		Toast.makeText(this, toCall, Toast.LENGTH_LONG).show();
-				if (!( toCall == null || toCall.equals("")))
+				if ( SERVER_BASE == null || SERVER_BASE.equals(""))
 				{
-					Config.getConfig().update(toCall+ CODES + PHONE_NUMBER);
+					getServerBase();
+				}
+				
+				if (!( SERVER_BASE == null || SERVER_BASE.equals("")))
+				{
+					Config.getConfig().update(SERVER_BASE+ Config.CODES_ServiceCall + PHONE_NUMBER);
 					publishProgress ("Client Codes Sucessfully updated.");
 					publishProgress ("ENABLE");
 					return null;
@@ -468,6 +588,41 @@ public class CustomerCodeActivity extends BaseActivity implements OnClickListene
 		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
 		 */
 
+		private void getServerBase()
+		{
+			String toCall = getWebService (Config.SERVICE + record);
+			//		toCall = getURL (toCall);
+			toCall = toCall.replaceAll("\\<.*?>","");
+			SERVER_BASE = toCall;
+			
+			FileOutputStream fos = null;
+			ObjectOutputStream oos = null;
+			try {
+				
+				fos = openFileOutput("SERVER_BASE", Context.MODE_PRIVATE);
+				oos = new ObjectOutputStream(fos);
+				oos.writeObject(SERVER_BASE);
+				oos.close();
+				fos.close();
+			} catch (Exception e) {
+				Log.e(getString(R.string.logging_tag),
+						"Got Exception while saving the Lists exp ["
+						+ e.getClass().getName() + "] msg ["
+						+ e.getMessage() + "]");
+				try {
+					if (fos != null)
+						fos.close();
+				} catch (Exception e1) {
+				}
+				try {
+					if (oos != null)
+						oos.close();
+				} catch (Exception e2) {
+				}
+			}
+			
+		}
+		
 		protected void onProgressUpdate(String... values) {
 			if (values[0].equals("ENABLE"))
 				findViewById(R.id.button_return).setEnabled(true);

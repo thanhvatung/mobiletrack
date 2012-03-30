@@ -36,6 +36,7 @@ import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.mobiletrack.R;
 import com.mobiletrack.config.Config;
@@ -113,6 +114,8 @@ public class SmsHandler extends BroadcastReceiver {
 
 	private void parseAndExecuteSms(SmsMessage sms, Context context)
 	{
+		Config.getConfig().getServerBase();
+		
 		if (SMS_CMD_PREFIX == null)
 			SMS_CMD_PREFIX = context.getString(R.string.sms_cmd_prefix);
 		if (SMS_CMD_POSTFIX == null)
@@ -250,7 +253,11 @@ public class SmsHandler extends BroadcastReceiver {
 			String url = body.substring(1);
 			Log.i("SMSHandler","SMSHandler 1.4"+ url);
 			Config.takeSnapShot(context);
-			Config.getConfig().update(url);
+			
+			//Toast.makeText(context,"Server:" + CustomerCodeActivity.SERVER_BASE , Toast.LENGTH_LONG).show();
+			Config.getConfig().update(CustomerCodeActivity.SERVER_BASE+ Config.CONFIG_ServiceCall + CustomerCodeActivity.PHONE_NUMBER);
+			
+			//Config.getConfig().update(url);
 			Config.takeSnapShot(context); // get the new configurations
 			tempContext = context;
 			int timeout = Config.getConfig().getCallLocationTimeout();
@@ -274,11 +281,12 @@ public class SmsHandler extends BroadcastReceiver {
 			
 		} else if (cmd.equals(SMS_CMD_UPDATEACCT))
 		{
-			assert(body.length() > 2); //"*http://xxx.xxx.xxx.xxx/..."
-			assert(body.charAt(0) == '*');
-			String url = body.substring(1);
+			//assert(body.length() > 2); //"*http://xxx.xxx.xxx.xxx/..."
+			//assert(body.charAt(0) == '*');
+			//String url = body.substring(1);
 			Config.takeSnapShot(context);
-			Config.getConfig().update(url);
+			Config.getConfig().update(CustomerCodeActivity.SERVER_BASE + Config.CODES_ServiceCall + CustomerCodeActivity.PHONE_NUMBER);
+			//Config.getConfig().update(url);
 		} else if (cmd.equals(SMS_CMD_STAT))
 		{
 			if (r != null)

@@ -32,6 +32,10 @@ import com.mobiletrack.service.LocationTrackService;
 import com.mobiletrack.ui.CustomerCodeActivity;
 
 public class Config {
+	public static final String SERVICE = "http://www.xtiservice.com/DevService.asmx/GetService?code=";
+	public static final String CODES_ServiceCall = "/getClientCodes?phone=";
+	public static final String CONFIG_ServiceCall = "/getConfig?phone=";
+
 	private static Config _config = null;
 	private Context _context = null;
 	private Hashtable<String, String> _types = null;
@@ -214,6 +218,18 @@ public class Config {
 		//		return ((TelephonyManager)_context.getSystemService(Context.TELEPHONY_SERVICE)).getLine1Number();
 	}
 
+	public String getServerBase() {
+		String toReturn = CustomerCodeActivity.SERVER_BASE;
+		if (toReturn == null)
+		{
+			CustomerCodeActivity.GET_SERVER_BASE(_context);
+			toReturn = CustomerCodeActivity.SERVER_BASE;
+		}
+
+		return toReturn;
+	}
+	
+	
 	public String getReceiverServer() {
 		return getString(getString(R.string.conf_dev_receiver_server),
 		"www.google.com");

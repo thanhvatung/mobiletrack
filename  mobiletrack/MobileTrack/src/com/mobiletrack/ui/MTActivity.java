@@ -68,6 +68,7 @@ public class MTActivity extends TabActivity {
 	private void initConfig() {
 		Config.takeSnapShot(this);
 		String phoneNumber = Config.getConfig().getPhoneNumber();
+		Config.getConfig().getServerBase();
 		// only load the default configuration if the phone number equals
 		// non_init_phonenumber
 		if (phoneNumber != null
